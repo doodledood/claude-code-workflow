@@ -132,7 +132,7 @@ graph TD
 #### Path 2: Simple Task
 
 ```
-1. No todos, no plan, no PRD
+1. No todos, no plan, no SPEC
 2. Quick probe: "Fix the login bug - what specifically?"
 3. Get one clarification
 4. Implement directly
@@ -392,7 +392,7 @@ Agent prompt template:
    - Verify every TODO was fully implemented
    - Verify all blocker todos are resolved
    - Confirm zero "fix" todos remaining
-   - If PRD.md exists, verify ALL requirements are addressed with evidence
+   - If SPEC.md exists, verify ALL requirements are addressed with evidence
 2. **Code Quality Review**:
 
    - Check patterns are followed consistently
@@ -448,7 +448,7 @@ ELSE IF Agent confirms all good:
 - Agent confirms code quality standards met (patterns followed, no type issues)
 - Agent confirms all quality gates pass on entire project
 - Agent confirms comprehensive test coverage (happy paths, error cases, edge cases)
-- Agent confirms PRD requirements met with specific evidence (if PRD exists)
+- Agent confirms SPEC requirements met with specific evidence (if SPEC exists)
 - Agent finds no issues requiring fixes
 
 **Goal**: Ensure feature is truly complete and production-ready. Implementation is NOT complete until Agent verification passes.

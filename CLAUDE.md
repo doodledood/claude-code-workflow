@@ -15,15 +15,13 @@
 # NOT required for documentation (.md), configuration, or other non-code files
 
 # Typecheck - Must return 0 errors
-npx nx run <project>:tsc
+...
 
 # Test - All tests must pass
-npx nx test <project> --testFile=<file>
-npx nx run <project>:test --testNamePattern="test name pattern"
-npx nx run <project>:test --testFile=apps/<project>/src/path/to/file.test.ts --testNamePattern="<some_name_pattern>"
+...
 
 # Lint - Fix auto-fixable issues
-npx nx lint <project> --fix
+...
 ```
 
 ### Development
@@ -42,20 +40,25 @@ npx nx lint <project> --fix
 ...
 ```
 
+## Coding & Testing General Guidelines
+
+...
+
+
 ## Feature Development Workflow
 
 ### Workflow Commands
 
 **Planning and implementation are handled through dedicated commands:**
 
-- `/prd` - Create minimal, clear PRDs optimized for AI implementation
+- `/spec` - Create minimal, testable specs with aggressive scope reduction
 - `/plan` - Transform requirements into atomic, verifiable implementation units
 - `/create-todos` - Convert plan units into self-contained todos in the system
 - `/act` - Execute implementation with continuous progress until complete
 
 **Workflow flexibility**: Each step is optional based on task complexity:
 
-- Complex features: `/prd` → `/plan` → `/create-todos` → `/act`
+- Complex features: `/spec` → `/plan` → `/create-todos` → `/act`
 - Medium tasks: `/plan` → `/create-todos` → `/act`
 - Simple tasks: `/act` directly
 
@@ -179,7 +182,7 @@ After all implementation todos complete:
 
 ```
 □ Use Agent tool for comprehensive review of all changes
-□ Agent confirms all requirements implemented (check against PRD.md if exists)
+□ Agent confirms all requirements implemented (check against SPEC.md if exists)
 □ Agent confirms no impartial code or newly added TODO comments remain
 □ Agent confirms code quality standards met
 □ Agent confirms all quality gates passing (tsc, test, lint)
@@ -295,19 +298,3 @@ When implementing features, consult docs as needed:
 - **Performance**: `docs/codebase/performance/` - optimization, scaling, infrastructure
 
 Start with code patterns, use docs for deeper understanding when needed.
-
-## Post-Compaction Continuity
-
-**This file is your implementation memory**. After context compaction:
-
-1. **TodoRead** restores your task list
-2. **This file** provides all implementation guidelines
-3. **Continue from current in_progress todo**
-4. **Follow the same systematic approach**
-
-The implementation workflow remains the same whether started fresh or resumed after compaction:
-
-- One todo at a time
-- Pattern-first development
-- Quality gates after every unit
-- Continue until all todos complete

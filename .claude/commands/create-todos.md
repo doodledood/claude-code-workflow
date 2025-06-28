@@ -24,7 +24,7 @@ You are **TodoMaster**, a todo architect who transforms plans into self-containe
 ```markdown
 ## Todo Creation Todos to Create Immediately
 
-1. "Read PLAN.md if exists, else PRD.md, else get task from user - identify units or requirements to transform - note patterns and line numbers"
+1. "Read PLAN.md if exists, else SPEC.md, else get task from user - identify units or requirements to transform - note patterns and line numbers"
 
 2. "Transform each unit/requirement into self-contained todo - add Reading Hints to each todo - embed all context, patterns, files, line numbers - ensure parallel gates - include Final Verification todo as last item"
 
@@ -37,7 +37,7 @@ You are **TodoMaster**, a todo architect who transforms plans into self-containe
 
 ### Why These 5 Todos
 
-- **Context**: Transform plans/PRDs into executable todos
+- **Context**: Transform plans/SPECs into executable todos
 - **Self-containment**: Each todo must work in isolation
 - **Quality**: Automated feedback ensures todos follow all rules
 - **Memory**: Todos are persistent memory across context switches
@@ -70,7 +70,7 @@ IF task = "one-line fix" OR "trivial change"
   THEN skip todos, use /act directly
 ELSE IF PLAN.md exists
   THEN transform all units to todos
-ELSE IF PRD.md exists
+ELSE IF SPEC.md exists
   THEN create simplified todos from requirements
 ELSE IF task = simple
   THEN create 1-2 basic todos
@@ -85,13 +85,13 @@ graph TD
     Start([Request]) --> CheckPlan{PLAN.md exists?}
 
     CheckPlan -->|Yes| ReadPlan[Read PLAN.md]
-    CheckPlan -->|No| CheckPRD{PRD.md exists?}
+    CheckPlan -->|No| CheckSPEC{SPEC.md exists?}
 
-    CheckPRD -->|Yes| ReadPRD[Read PRD.md]
-    CheckPRD -->|No| GetTask[Get Task from User]
+    CheckSPEC -->|Yes| ReadSPEC[Read SPEC.md]
+    CheckSPEC -->|No| GetTask[Get Task from User]
 
     ReadPlan --> TransformUnits[Transform Units to Todos]
-    ReadPRD --> CreateSimple[Create Simple Todos]
+    ReadSPEC --> CreateSimple[Create Simple Todos]
     GetTask --> CreateBasic[Create Basic Todos]
 
     TransformUnits --> TodoWrite[Use TodoWrite Tool]
@@ -126,10 +126,10 @@ graph TD
 5. Use TodoWrite to create in system → Done
 ```
 
-#### Path 2: Direct from PRD
+#### Path 2: Direct from SPEC
 
 ```
-1. Read PRD.md requirements
+1. Read SPEC.md requirements
 2. Create simplified todos (find patterns, implement, test)
 3. Include pattern-finding steps in todos
 4. Validate → TodoWrite → Done
@@ -150,8 +150,8 @@ graph TD
 ```
 IF PLAN.md exists:
   Read PLAN.md and extract all units
-ELSE IF PRD.md exists:
-  Read PRD.md and create simple todos from requirements
+ELSE IF SPEC.md exists:
+  Read SPEC.md and create simple todos from requirements
 ELSE:
   Ask user: "What would you like to implement?"
   Create basic todos from user response
@@ -238,7 +238,7 @@ TodoWrite({
 ### Final Verification Todo (ALWAYS include as last todo)
 
 ```
-"Final Verification: Comprehensive Agent Review [ReadClaude,SkipDocs] - Use Agent tool to verify ALL implementation complete - Check against PRD.md if exists - Verify code quality and patterns - Confirm all quality gates pass - Verify meaningful test coverage - Fix any issues found - Gates: Agent verification must pass"
+"Final Verification: Comprehensive Agent Review [ReadClaude,SkipDocs] - Use Agent tool to verify ALL implementation complete - Check against SPEC.md if exists - Verify code quality and patterns - Confirm all quality gates pass - Verify meaningful test coverage - Fix any issues found - Gates: Agent verification must pass"
 ```
 
 ## Anti-Patterns to Avoid
@@ -357,7 +357,7 @@ Use TodoWrite again with updated todos.
 ### When No Input Files Exist
 
 ```markdown
-IF no PLAN.md AND no PRD.md:
+IF no PLAN.md AND no SPEC.md:
 ASK: "What would you like to implement?"
 CREATE: Basic todos with pattern-finding steps
 INCLUDE: Research tasks as first todos
@@ -390,13 +390,13 @@ CONTINUE: With best effort transformation
 **CRITICAL**: Every todo list must end with:
 
 ```
-"Final Verification: Comprehensive Agent Review [ReadClaude,SkipDocs] - Use Agent tool to verify ALL implementation complete - Check against PRD.md if exists - Verify code quality and patterns - Confirm all quality gates pass - Verify meaningful test coverage - Fix any issues found - Gates: Agent verification must pass"
+"Final Verification: Comprehensive Agent Review [ReadClaude,SkipDocs] - Use Agent tool to verify ALL implementation complete - Check against SPEC.md if exists - Verify code quality and patterns - Confirm all quality gates pass - Verify meaningful test coverage - Fix any issues found - Gates: Agent verification must pass"
 ```
 
 This ensures:
 
 - Complete implementation verification
-- PRD requirements are met
+- SPEC requirements are met
 - Code quality standards maintained
 - No missing tests or functionality
 - Safety net for any oversights
@@ -405,9 +405,9 @@ This ensures:
 
 ### If No PLAN.md Exists
 
-1. Check for PRD.md
-2. If PRD exists: Create simpler todos directly from requirements
-3. If no PRD: Ask user for task description
+1. Check for SPEC.md
+2. If SPEC exists: Create simpler todos directly from requirements
+3. If no SPEC: Ask user for task description
 4. Create basic todos with pattern-finding steps
 
 ### For Simple Tasks

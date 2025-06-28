@@ -24,8 +24,8 @@ That's it. You're ready to go.
 **Your First Feature**:
 
 ```
-You: /prd Add a user profile feature
-Claude: [creates PRD.md with clear requirements]
+You: /spec Add a user profile feature
+Claude: [challenges scope, creates minimal SPEC.md]
 You: /plan
 Claude: [creates a plan in PLAN.md]
 You: /create-todos
@@ -53,7 +53,7 @@ Done.
 
 **When to use**: Typos, simple bugs, one-line changes
 
-### 2. Skip PRD (When Requirements Are Crystal Clear)
+### 2. Skip SPEC (When Requirements Are Crystal Clear)
 
 ```
 You: /plan Add user authentication
@@ -70,8 +70,8 @@ You: [take a walk, plan next feature, or sleep]
 ### 3. Full Feature (Recommended for New Features)
 
 ```
-You: /prd Build a subscription system
-Claude: [creates PRD.md with requirements]
+You: /spec Build a subscription system
+Claude: [creates SPEC.md with minimal requirements]
 You: /plan
 Claude: [creates detailed PLAN.md]
 You: /create-todos
@@ -99,7 +99,7 @@ You: [work on other projects]
 
 ### Workflow Commands
 
-- **`/prd`** - Create minimal requirements doc for unclear features. Outputs PRD.md.
+- **`/spec`** - Create minimal specs by aggressively challenging and deleting features. Outputs SPEC.md.
 - **`/plan`** - Research patterns and create implementation plan. Outputs PLAN.md.
 - **`/create-todos`** - Transform plan into persistent todos in the system.
 - **`/act`** - Execute implementation until complete. The workhorse command.
@@ -173,14 +173,14 @@ The ultimate productivity hack:
 
 ### Choose the Right Model
 
-- **Planning & PRDs**: Use Opus 4 - Better at complex reasoning and design
+- **Planning & SPECs**: Use Opus 4 - Better at complex reasoning and scope reduction
 - **Implementation**: Use Sonnet 4 - Faster and perfect for coding with patterns
 
 This combination gives you the best of both worlds: thoughtful planning and efficient execution.
 
 ### The Iteration Pattern
 
-- Happy with PRD/Plan/Todos? Just run the next command
+- Happy with SPEC/Plan/Todos? Just run the next command
 - Need changes? Say what to fix and Claude will update
 - No need to say "approved" - moving forward is approval
 - This keeps the workflow flowing smoothly
@@ -188,7 +188,7 @@ This combination gives you the best of both worlds: thoughtful planning and effi
 ### Plan Multiple Features at Once
 
 ```
-Morning: Create 3 PRDs
+Morning: Create 3 SPECs
 Lunch: Plan all 3 features
 Afternoon: Execute all 3 in sequence
 Evening: Review and ship
@@ -255,16 +255,16 @@ _Optional reading - you don't need this to be productive, but it helps to unders
 - File patterns (your project's structure)
 - CLAUDE.md (your project's specific rules and standards)
 
-### The PRD Phase (Requirements First)
+### The SPEC Phase (Deletion First)
 
-When you run `/prd`:
+When you run `/spec`:
 
 1. **Requirements Extraction** - Claude becomes a minimalist product manager
 
    - **Why**: Clear WHAT before HOW. AI needs testable requirements, not business cases
    - **Focus**: Specific capabilities with acceptance criteria
    - **Skip**: ROI, market analysis, user personas, business metrics
-   - **Result**: Minimal PRD with just what's needed to build
+   - **Result**: Minimal SPEC with ruthless scope reduction
 
 2. **Testable Criteria** - Every requirement gets a verification method
 
@@ -272,28 +272,28 @@ When you run `/prd`:
    - **Example**: "User can upload avatar" → "POST /profile/photo returns 200 and stores file"
    - **Benefit**: Implementation knows exactly when it's done
 
-3. **PRD.md Creation** - Temporary workspace file
+3. **SPEC.md Creation** - Temporary workspace file
 
    - **Why**: Review and modify requirements before planning
    - **Format**: Problem context (1-2 sentences), requirements list, out of scope
-   - **Lifespan**: Created by `/prd`, consumed by `/plan`, then obsolete
+   - **Lifespan**: Created by `/spec`, consumed by `/plan`, then obsolete
    - **Note**: This file is gitignored - it's just a workflow artifact
 
 4. **Agent Validation** - Automated quality check
    - **Why**: Catch vague requirements before they propagate
    - **Checks**: Clarity, testability, scope boundaries, minimalism
-   - **Result**: PRD ready for planning without ambiguity
+   - **Result**: SPEC ready for planning without ambiguity
 
-**The PRD insight**: By forcing requirements into testable form upfront, the entire downstream process becomes deterministic. No guessing during implementation.
+**The SPEC insight**: By aggressively deleting features and forcing requirements into testable form upfront, the entire downstream process becomes deterministic. No guessing during implementation.
 
 ### The Planning Phase
 
 When you run `/plan`:
 
-1. **Requirements Input** - Claude reads PRD.md (or gets requirements from you)
+1. **Requirements Input** - Claude reads SPEC.md (or gets requirements from you)
 
    - **Why**: Plans need clear requirements as foundation
-   - **Source priority**: PRD.md → User input → Suggest creating PRD first
+   - **Source priority**: SPEC.md → User input → Suggest creating SPEC first
    - **Focus**: Transform WHAT (requirements) into HOW (implementation units)
    - **Result**: Concrete plan based on testable criteria
 
@@ -316,7 +316,7 @@ When you run `/plan`:
    - **Why**: Review and modify plan before creating todos
    - **Format**: Structured markdown with units, patterns with line numbers, gates
    - **Lifespan**: Created by `/plan`, consumed by `/create-todos`, then obsolete
-   - **Important**: Like PRD.md, this is just a workflow artifact
+   - **Important**: Like SPEC.md, this is just a workflow artifact
 
 5. **Agent Validation** - Automated plan review
    - **Why**: Ensures units are truly atomic and patterns are specific
@@ -378,7 +378,7 @@ Gates: Run in parallel: tsc, test --testFile=user.service.test.ts, lint"
    ```
    "Final Verification: Comprehensive Agent Review [ReadClaude,SkipDocs] -
    Use Agent tool to verify ALL implementation complete -
-   Check against PRD.md if exists - Verify code quality and patterns -
+   Check against SPEC.md if exists - Verify code quality and patterns -
    Confirm all quality gates pass - Verify meaningful test coverage -
    Fix any issues found - Gates: Agent verification must pass"
    ```
@@ -544,7 +544,7 @@ Here's a critical insight about long implementation sessions:
 
 1. **File-Based Workflow Enables Control**
 
-   - PRD.md → Review requirements before planning
+   - SPEC.md → Review requirements before planning
    - PLAN.md → Review plan before creating todos
    - Each step outputs a file you can modify
    - **Result**: Full control while maintaining automation
@@ -571,7 +571,7 @@ Here's a critical insight about long implementation sessions:
 
 5. **Multiple Validation Layers**
 
-   - Agent validates PRD for clarity
+   - Agent validates SPEC for clarity and scope reduction
    - Agent validates plan for atomicity
    - Quality gates validate each unit
    - Final Agent verification validates completeness
@@ -610,7 +610,7 @@ Done in 20 minutes.
 
 ```
 You: /plan → review → /create-todos → /act
-Skip PRD when you know exactly what to build.
+Skip SPEC when requirements are already minimal and clear.
 ```
 
 **When to use**: Requirements are already well-defined, no ambiguity.
@@ -618,7 +618,7 @@ Skip PRD when you know exactly what to build.
 ### Full (recommended default)
 
 ```
-You: /prd → /plan → /create-todos → /act
+You: /spec → /plan → /create-todos → /act
 Requirements first, then plan, then execute.
 ```
 
@@ -626,7 +626,7 @@ Requirements first, then plan, then execute.
 
 **Pro tips**:
 
-- Start with `/prd` by default - clear requirements save time later
+- Start with `/spec` by default - aggressive scope reduction saves time later
 - Skip to `/plan` only when requirements are crystal clear
 - Use `/act` directly for fixes and simple changes
 - Remember: 5 minutes writing requirements saves hours of rework
@@ -639,7 +639,7 @@ Understanding which files are temporary vs persistent is crucial:
 
 ### Temporary Workflow Files (Gitignored)
 
-1. **PRD.md** - Created by `/prd`
+1. **SPEC.md** - Created by `/spec`
 
    - Purpose: Define testable requirements
    - Consumed by: `/plan`
@@ -669,7 +669,7 @@ Understanding which files are temporary vs persistent is crucial:
    - Lifespan: Permanent (checked into repo)
    - Critical: Ensures continuity when context lost
 
-**The lifecycle insight**: Files flow from temporary (PRD → PLAN) to persistent (Todos + CLAUDE.md). This design enables both human control (file review) and autonomous execution (persistent memory).
+**The lifecycle insight**: Files flow from temporary (SPEC → PLAN) to persistent (Todos + CLAUDE.md). This design enables both human control (file review) and autonomous execution (persistent memory).
 
 ## When Things Go Wrong
 
@@ -681,7 +681,7 @@ Understanding which files are temporary vs persistent is crucial:
 
 ### Task Unclear During Implementation?
 
-- If during `/act`: Stop and run `/prd` to clarify requirements
+- If during `/act`: Stop and run `/spec` to clarify and reduce requirements
 - If plan too vague: Re-run `/plan` with more specific guidance
 - If todos missing context: Re-run `/create-todos` with feedback
 
@@ -691,7 +691,7 @@ Understanding which files are temporary vs persistent is crucial:
 You: /act Add user profiles
 Claude: [struggling with unclear requirements]
 You: "Stop. Let's clarify first"
-You: /prd User profile system with avatar upload and bio
+You: /spec User profile system with avatar upload and bio
 ```
 
 ### Claude Hit a Blocker
@@ -727,7 +727,7 @@ Anyone (including future Claude) can pick up where things left off.
 
 - Simple fix? Just `/act Fix the login bug`
 - Very clear requirements? `/plan Add user auth` → `/create-todos` → `/act`
-- New feature? `/prd User profiles` → `/plan` → `/create-todos` → `/act` (recommended default)
+- New feature? `/spec User profiles` → `/plan` → `/create-todos` → `/act` (recommended default)
 
 **Key insight**: Separate thinking (planning) from doing (execution)
 
