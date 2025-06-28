@@ -1,23 +1,27 @@
-# Claude Code Development Workflow
+# 🤖 Claude Code Development Workflow
 
-A practical guide to autonomous development where Claude implements while you sleep, plan, or drink coffee.
+> A practical guide to autonomous development where Claude implements while you sleep, plan, or drink coffee ☕
 
-## How to Set This Up
+## 🛠️ How to Set This Up
 
 **Two simple steps:**
 
-1. **Create your CLAUDE.md** - Base it on the one in this repo, adapt for your project
+### 1. Create your CLAUDE.md
 
-   - Replace quality gates with your language's commands (test, lint, compile)
-   - Update pattern examples to match your project structure
-   - Add your project-specific conventions and rules
-   - This is what enables autonomous implementation in YOUR stack
+Base it on the one in this repo, adapt for your project:
 
-2. **Copy commands** - Copy `.claude/commands/` to your project
+- Replace quality gates with your language's commands (test, lint, compile)
+- Update pattern examples to match your project structure
+- Add your project-specific conventions and rules
+- This is what enables autonomous implementation in YOUR stack
 
-That's it. You're ready to go.
+### 2. Copy commands
 
-## Quick Start
+Copy `.claude/commands/` to your project
+
+✅ **That's it. You're ready to go.**
+
+## 🚦 Quick Start
 
 **The Big Idea**: Describe what you want → Claude plans it → You approve → Claude builds it → You do other things.
 
@@ -41,7 +45,7 @@ That's it. Claude handles the implementation while you handle... anything else.
 
 **Pro tip**: Happy with the output? Just run the next command. Need changes? Say what to fix and Claude will iterate.
 
-## The Three Workflows
+## 📊 The Three Workflows
 
 ### 1. Simple Fix (5 minutes)
 
@@ -83,7 +87,7 @@ You: [work on other projects]
 
 **When to use**: New features, ensuring clear requirements upfront
 
-## Essential Commands
+## 🎯 Essential Commands
 
 ### First Time Setup
 
@@ -110,7 +114,7 @@ You: [work on other projects]
 
 - **`/refresh-claude`** - If Claude acts weird. Reinforces the rules.
 
-## What to Do While Claude Works
+## 💡 What to Do While Claude Works
 
 This is where the magic happens. Claude's execution time is YOUR time.
 
@@ -149,7 +153,7 @@ Result: 3 features built in a morning
 
 Your productivity multiplies because thinking (planning) and doing (execution) happen in parallel.
 
-## The Overnight Pattern
+## 🌙 The Overnight Pattern
 
 The ultimate productivity hack:
 
@@ -169,7 +173,7 @@ The ultimate productivity hack:
 
 **Real results**: Wake up to 80-90% completed features. Just review and refine.
 
-## Pro Tips
+## 💪 Pro Tips
 
 ### Choose the Right Model
 
@@ -242,7 +246,7 @@ git worktree add ../proj-ui feature/ui
 
 **The math**: Would you rather have 1 perfect feature or 5 features at 85% that you can polish? The choice is clear.
 
-## How It Really Works (Deep Dive)
+## 🔍 How It Really Works (Deep Dive)
 
 _Optional reading - you don't need this to be productive, but it helps to understand why it works._
 
@@ -593,7 +597,7 @@ Here's a critical insight about long implementation sessions:
 
 **The key insight**: By front-loading all decisions into planning and using existing patterns for everything, execution becomes a deterministic process. Claude doesn't need to make judgment calls - it just follows the blueprint. Add the CLAUDE.md failsafe for context loss, and you have a system that can run autonomously for hours. This is why you can literally sleep while it works.
 
-## Choosing Your Workflow Depth
+## 🎨 Choosing Your Workflow Depth
 
 The beauty of the new system? **You choose how deep to go:**
 
@@ -633,7 +637,7 @@ Requirements first, then plan, then execute.
 
 The commands are designed to chain naturally - each one's output feeds the next.
 
-## File Lifecycle & Persistence
+## 📁 File Lifecycle & Persistence
 
 Understanding which files are temporary vs persistent is crucial:
 
@@ -671,7 +675,7 @@ Understanding which files are temporary vs persistent is crucial:
 
 **The lifecycle insight**: Files flow from temporary (SPEC → PLAN) to persistent (Todos + CLAUDE.md). This design enables both human control (file review) and autonomous execution (persistent memory).
 
-## When Things Go Wrong
+## 🚨 When Things Go Wrong
 
 ### Claude Seems Confused
 
@@ -719,15 +723,15 @@ No problem. Todos contain everything needed:
 
 Anyone (including future Claude) can pick up where things left off.
 
-## Summary
+## 🎉 Summary
 
 **Basic workflow**: `/plan [task]` → `/create-todos` → `/act` → Walk away
 
 **Choose your depth**:
 
-- Simple fix? Just `/act Fix the login bug`
-- Very clear requirements? `/plan Add user auth` → `/create-todos` → `/act`
-- New feature? `/spec User profiles` → `/plan` → `/create-todos` → `/act` (recommended default)
+- 🔧 Simple fix? Just `/act Fix the login bug`
+- 📋 Very clear requirements? `/plan Add user auth` → `/create-todos` → `/act`
+- 🎯 New feature? `/spec User profiles` → `/plan` → `/create-todos` → `/act` (recommended default)
 
 **Key insight**: Separate thinking (planning) from doing (execution)
 
@@ -735,4 +739,4 @@ Anyone (including future Claude) can pick up where things left off.
 
 Start with simple tasks to build confidence. Within a day, you'll be planning features before bed and waking up to working code.
 
-It's not magic, but it's close.
+It's not magic, but it's close. ✨
