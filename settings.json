@@ -1,0 +1,55 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx nx run:*)",
+      "Bash(npx nx lint:*)",
+      "Bash(rg:*)",
+      "Bash(cp:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(wc:*)",
+      "Bash(xargs:*)",
+      "Bash(tee:*)",
+      "Bash(tr:*)",
+      "Bash(sed:*)",
+      "Bash(awk:*)",
+      "Bash(join:*)",
+      "Bash(split:*)",
+      "Bash(npx eslint:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git status:*)",
+      "Bash(git branch:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git shortlog:*)",
+      "Bash(npx nx test:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(npx tsc:*)",
+      "Bash(node:*)",
+      "Bash(npx jest:*)",
+      "Bash(echo:*)"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "TodoWrite",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python ./.claude/hooks/notify_reading_hints.py"
+          }
+        ]
+      }
+    ]
+  }
+}

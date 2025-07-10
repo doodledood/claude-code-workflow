@@ -91,7 +91,7 @@ This ships in 1 week vs 2 months. Thoughts?"
 ```markdown
 ## SPEC Creation Todos to Create Immediately
 
-1. "Extract core problem - ask 'What's the ONE thing this must do?' and 'What breaks without this?' - focus on understanding the real need"
+1. "Extract core problem - ask 'What's the ONE thing this must do?' and 'What breaks without this?' - if Fibery ticket mentioned, fetch with Fibery tool - focus on understanding the real need"
 
 2. "Aggressively reduce scope FIRST - challenge every feature: 'Can we ship without X?' - push for minimal v1 - get user agreement on reduced scope - document deletions in Future Considerations"
 
@@ -103,7 +103,7 @@ This ships in 1 week vs 2 months. Thoughts?"
 
 6. "Run automated feedback using Agent tool - check for any remaining ambiguity in agreed features - verify no gaps exist - update SPEC.md with improvements"
 
-7. "Present final SPEC to user - confirm completeness: 'Any scenarios we missed?' - iterate until user confirms no gaps - tell user to run /plan next"
+7. "Present final SPEC to user - confirm completeness: 'Any scenarios we missed?' - iterate until user confirms no gaps - tell user to get into Planning Mode and plan their implementation next"
 ```
 
 ### Why These 7 Todos
@@ -383,6 +383,18 @@ You: "I'll spec all of these"
 ```
 
 ## Integration Points
+
+### Fibery Ticket Integration
+
+When user mentions a ticket:
+
+```markdown
+1. Use Fibery tool to fetch ticket with the ID/URL
+2. Extract core problem (ignore feature wishlists)
+3. Include ticket ID in SPEC header
+4. Challenge any non-essential requirements
+5. Focus on minimal solution to stated problem
+```
 
 ### Documentation Check
 
